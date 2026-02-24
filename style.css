@@ -1,3 +1,128 @@
+/* 1. Reset y Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    /* El JS cambiará este background, pero dejamos uno por defecto */
+    background: #1a2a3a; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 1s ease;
+    padding: 20px;
+}
+
+/* 2. Tarjeta Principal */
+main {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    backdrop-filter: blur(10px); /* Efecto cristal */
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #777;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* 3. Inputs y Botones */
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 12px;
+}
+
+input:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 8px rgba(79, 172, 254, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #4facfe;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #008eff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 142, 255, 0.4);
+}
+
+/* 4. Resultados del Clima */
+#resultado {
+    margin-top: 25px;
+}
+
+.weather-card {
+    animation: fadeIn 0.8s ease;
+}
+
+.temp-main {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #222;
+    margin: 10px 0;
+}
+
+.description {
+    text-transform: capitalize;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo para el texto de error */
+.error {
+    color: #ff4757;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 /* Grupo de botones */
 .button-group {
     display: flex;
