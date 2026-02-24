@@ -1,14 +1,31 @@
 # 🌤️ Weather Dash Pro
 
-Una aplicación meteorológica moderna y minimalista construida con **JavaScript Vanilla**. Este proyecto demuestra el uso de APIs externas, optimización de rendimiento y diseño adaptativo basado en el contexto del usuario.
+Una aplicación meteorológica moderna y minimalista construida con **JavaScript Vanilla**. Este proyecto demuestra el uso de APIs externas, optimización de rendimiento (Debouncing) y persistencia de datos.
+
+---
+
+## ⚠️ IMPORTANTE: Configuración de la API Key
+
+Para garantizar la seguridad de la cuenta y seguir las buenas prácticas de desarrollo, **este repositorio no incluye una API Key activa**. 
+
+Si deseas probar la aplicación, sigue estos pasos:
+
+1.  Regístrate de forma gratuita en [OpenWeatherMap](https://openweathermap.org/) para obtener tu propia llave.
+2.  Abre el archivo `main.js`.
+3.  En la primera línea, sustituye el valor de `OPEN_WEATHER_API_KEY` por tu llave personal:
+    ```javascript
+    const OPEN_WEATHER_API_KEY = "TU_LLAVE_AQUI";
+    ```
+4.  Guarda el archivo y abre `index.html` en tu navegador.
+
+---
 
 ## 🚀 Características Principales
 
-- **Consumo de API REST:** Conexión en tiempo real con *OpenWeatherMap* para obtener datos meteorológicos precisos.
-- **Buscador con Autocompletado:** Implementación de la *Geocoding API* con técnica de **Debouncing** (500ms) para optimizar el consumo de red y mejorar la experiencia de usuario.
-- **Diseño Adaptativo Dinámico:** La interfaz cambia su paleta de colores automáticamente dependiendo de la hora local de la ciudad consultada y su estado climático.
-- **Geolocalización:** Soporte para detección automática de ubicación mediante la *Web Geolocation API* nativa del navegador.
-- **Persistencia de Datos:** Uso de `localStorage` para recordar la última ciudad buscada al recargar la página.
+- **Consumo de API REST:** Conexión en tiempo real con *OpenWeatherMap*.
+- **Buscador con Autocompletado:** Implementación de la *Geocoding API* con técnica de **Debouncing** (500ms) para optimizar el consumo de red.
+- **Diseño Adaptativo Dinámico:** La interfaz cambia su paleta de colores automáticamente dependiendo de la hora local de la ciudad y su estado climático.
+- **Persistencia de Datos:** Uso de `localStorage` para recordar la última búsqueda.
 - **UX Optimizada:** Soporte para búsqueda mediante tecla "Enter", indicadores de carga (Spinners) y validación visual de errores.
 
 ## 🛠️ Tecnologías Utilizadas
@@ -17,23 +34,12 @@ Una aplicación meteorológica moderna y minimalista construida con **JavaScript
 * **CSS3** (Flexbox, Grid, Animaciones `@keyframes`, Glassmorphism).
 * **JavaScript (ES6+)**:
     * `Fetch API` con `Async/Await`.
-    * Manejo de asincronía y Promesas.
     * Manipulación dinámica del DOM.
-    * `localStorage` y `Geolocalización`.
-
-## 📸 Capturas de Pantalla
-
-[Aquí puedes añadir una captura de tu proyecto después de subirla a GitHub]
-
-## 📋 Requisitos e Instalación
-
-1. Clona este repositorio.
-2. Abre el archivo `index.html` en tu navegador.
-3. *Opcional:* Si deseas usar tu propia API Key, cámbiala en la constante `OPEN_WEATHER_API_KEY` dentro de `main.js`.
+    * Gestión de estados (Loading, Error, Success).
 
 ## 🧠 Desafíos Técnicos Superados
 
-Uno de los mayores retos fue el cálculo de la **hora local real** de ciudades en diferentes zonas horarias, ya que el objeto `Date` de JavaScript utiliza la hora del sistema del usuario. Lo solucioné utilizando el desplazamiento de segundos (`timezone`) proporcionado por la API de OpenWeather para calcular el tiempo UTC y ajustarlo a la zona horaria destino.
+Uno de los mayores retos fue el manejo de la **asincronía** al realizar búsquedas rápidas. Se implementó un **Debounce** para evitar saturar la API con peticiones innecesarias mientras el usuario escribe. Además, se gestionó la lógica de zonas horarias para mostrar la hora local correcta de cada ciudad, independientemente de la ubicación del usuario.
 
 ---
-Creado con ❤️ como proyecto de portfolio para Desarrollo Web.
+Creado con ❤️ por Javier - Proyecto para Portfolio de Desarrollo Web.
