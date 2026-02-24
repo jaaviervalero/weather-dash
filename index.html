@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dash Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Weather Dash</h1>
+            <p>Datos en tiempo real de cualquier ciudad</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="cityInput" list="ciudades-sugeridas" autocomplete="off" placeholder="Busca una ciudad...">
+            <datalist id="ciudades-sugeridas"></datalist>
+            <div class="button-group">
+                <button id="searchBtn">Buscar</button>
+                <button id="geoBtn" title="Usar mi ubicación">📍</button>
+            </div>
+        </div>
+
+        <div id="resultado">
+            </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
