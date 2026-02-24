@@ -1,4 +1,4 @@
-const OPEN_WEATHER_API_KEY = "e95e0631d42b3f2c335c5547e1e24228";
+const OPEN_WEATHER_API_KEY = "TU_API_KEY_AQUI"; // Reemplaza con tu clave de OpenWeatherMap
 const searchButton = document.querySelector("#searchBtn");
 const geoButton = document.querySelector("#geoBtn");
 const cityInput = document.querySelector("#cityInput");
