@@ -1,0 +1,23 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ] # Se ejecuta cada vez que haces push a main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Inject API Key
+        run: |
+          # Cambiamos el placeholder por el secreto de GitHub en el archivo main.js
+          sed -i "s/TU_API_KEY_AQUI/${{ secrets.WEATHER_API_KEY }}/g" main.js
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: . # Sube la carpeta raíz
+          branch: gh-pages # Crea una rama especial para la web pública
